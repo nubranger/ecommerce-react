@@ -1,0 +1,130 @@
+.shop {
+  height: 3000px;
+}
+
+.header {
+
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 9999;
+    }
+
+  &__menu {
+
+    background-color: #212529;
+
+    .container {
+      background-color: #212529;
+    }
+  }
+
+  &__middle {
+    padding: 10px 0;
+
+    img {
+      width: 100px;
+    }
+
+    .form-control:focus {
+      color: #343a40;
+      border: 1px solid #E5E5E5;
+      outline: 0;
+      box-shadow: none;
+    }
+
+    &-cart {
+      font-size: 20px;
+      display: inline-block;
+      float: right;
+
+      li {
+        display: inline-block;
+        float: left;
+        padding: 0 10px;
+
+        i {
+          position: relative;
+
+          span {
+            position: absolute;
+            right: -10px;
+            top: -1px;
+            height: 15px;
+            width: 15px;
+            background: #000000;
+            color: #ffffff;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: 700;
+            text-align: center;
+            line-height: 15px;
+          }
+        }
+      }
+
+
+      &-price {
+        font-weight: bold;
+      }
+    }
+
+
+  }
+
+  &__top {
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid #E5E5E5;
+    height: 40px;
+
+    span {
+      padding-top: 10px;
+      padding-bottom: 12px;
+      padding-right: 10px;
+    }
+
+    i {
+      padding: 12px;
+    }
+
+    .navbar {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    &-contact {
+      float: left;
+
+      &-email {
+        float: left;
+        border-right: 1px solid #E5E5E5;
+        padding-top: 5px;
+        padding-bottom: 10px;
+      }
+
+      &-phone {
+        float: left;
+        padding-top: 5px;
+        padding-bottom: 10px;
+      }
+    }
+
+    &-social {
+      float: right;
+      padding-top: 5px;
+      padding-bottom: 10px;
+      padding-right: 20px;
+    }
+
+    &-profile {
+      float: right;
+      border-left: 1px solid #E5E5E5;
+      padding-top: 5px;
+      padding-bottom: 10px;
+    }
+
+  }
+
+}
