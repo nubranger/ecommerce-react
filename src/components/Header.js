@@ -1,50 +1,15 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React from 'react';
 import {
     Button,
     Col,
-    Collapse,
-    Container, DropdownItem, DropdownMenu, DropdownToggle,
-    Form,
-    FormGroup,
+    Container,
     Input,
     InputGroup,
     InputGroupAddon,
-    Label,
-    Nav,
-    Navbar,
-    NavbarBrand, NavbarText,
-    NavbarToggler,
-    NavItem, NavLink,
-    Row, UncontrolledDropdown
+    Row,
 } from "reactstrap";
 
 const Header = () => {
-
-    // const [isOpen, setIsOpen] = useState(false);
-    // const [sticky, setSticky] = useState("");
-    // const elementRef = useRef(null);
-    // const toggle = () => setIsOpen(!isOpen);
-
-
-    // const st = () => {
-    //     console.log("1");
-    //     if (window.pageYOffset >= s) {
-    //         setSticky("sticky");
-    //     } else {
-    //         setSticky("");
-    //     }
-    // }
-
-    // useEffect(() => {
-    //
-    // let s = elementRef.current.offsettop;
-    // console.log(s)
-    //
-    //     // window.addEventListener("scroll", st);
-    //     return function cleanup() {
-    //         // window.removeEventListener("scroll", st);
-    //     };
-    // });
 
     return (
         <div className="header">
@@ -66,7 +31,7 @@ const Header = () => {
                     </div>
                     <div className="header__top-social">
                         <i className="bi bi-facebook"/>
-                        <i className="bi bi-twitter"></i>
+                        <i className="bi bi-twitter"/>
                     </div>
                 </Container>
             </div>
@@ -74,7 +39,7 @@ const Header = () => {
                 <div className="header__middle">
                     <Row>
                         <Col lg="2" md="2">
-                            <img src={require("../img/logo.png").default} alt="HTML"/>
+                            <img src={require("../img/logo.png").default} alt="logo"/>
                         </Col>
                         <Col lg="7" md="7">
                             <InputGroup>
