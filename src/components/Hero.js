@@ -21,22 +21,25 @@ const Hero = () => {
                         <div className="carousel-item active" data-bs-interval="5000">
                             <img src={require("../img/hero/img1.jpg").default} className="d-block w-100" alt="img1"/>
                             <div className="carousel-caption">
-                                <h5>First slide label</h5>
+                                <h1>First slide label</h1>
                                 <p>Some representative placeholder content for the first slide.</p>
+                                <button className="btn-shop">SHOP NOW</button>
                             </div>
                         </div>
                         <div className="carousel-item" data-bs-interval="5000">
                             <img src={require("../img/hero/img2.jpg").default} className="d-block w-100" alt="img2"/>
                             <div className="carousel-caption">
-                                <h5>Second slide label</h5>
+                                <h1>Second slide label</h1>
                                 <p>Some representative placeholder content for the first slide.</p>
+                                <button className="btn-shop">SHOP NOW</button>
                             </div>
                         </div>
                         <div className="carousel-item" data-bs-interval="5000">
                             <img src={require("../img/hero/img3.jpg").default} className="d-block w-100" alt="img3"/>
                             <div className="carousel-caption">
-                                <h5>Third slide label</h5>
+                                <h1>Third slide label</h1>
                                 <p>Some representative placeholder content for the first slide.</p>
+                                <button className="btn-shop">SHOP NOW</button>
                             </div>
                         </div>
                     </div>
