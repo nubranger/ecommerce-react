@@ -15,6 +15,7 @@ const Header = () => {
     const [showCart, setShowCart] = useState(false);
 
 
+
     return (
         <div className="header">
             <div className="header__top">

@@ -1,15 +1,41 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
+import HeaderCart from "./HeaderCart";
 
 const Menu = () => {
 
-    const ref = useRef(null);
+    const [showCart, setShowCart] = useState(false);
+    const menuRef = useRef(null);
+    const [menuPosition, setMenuPosition] = useState(null);
+    const [showMenuCart, setShowMenuCart] = useState(false);
 
     useEffect(() => {
 
-    }, []);
+        setMenuPosition(menuRef.current.offsetTop);
+
+        const watchScroll = () => {
+            window.addEventListener("scroll", menuCart);
+        }
+
+        watchScroll();
+        return () => {
+            window.removeEventListener("scroll", menuCart);
+        };
+
+    }, [menuPosition]);
+
+
+    const menuCart = () => {
+        if (window.pageYOffset > menuPosition) {
+            setShowMenuCart(true);
+        } else {
+            setShowMenuCart(false);
+        }
+
+    }
+
 
     return (
-        <div className="sticky-top menu">
+        <div ref={menuRef} className="sticky-top menu">
             <div className="container">
                 <div className="navbar navbar-expand-md navbar-light bg-dark">
 
@@ -46,6 +72,48 @@ const Menu = () => {
                         <button className="nav-link">SHOP</button>
                         <button className="nav-link">CONTACT</button>
                     </div>
+
+
+                    <ul className={showMenuCart ? "menu__info" : "fade menu__info"}>
+                        <li className="menu__info-cart-price">
+                            $ 777.00
+                        </li>
+                        <li className="menu__info-bag">
+
+                            <div
+                                // onMouseEnter={() => setShowCart(true)}
+                                className="menu__info-bag-cart">
+                                <i className="bi bi-bag">
+                                    <span>77</span>
+                                </i>
+                            </div>
+                            {
+                                showCart && (
+                                    <div
+                                        // onMouseLeave={() => setShowCart(false)}
+                                        className="menu__info-bag-dropdown"
+                                    >
+                                        <HeaderCart/>
+                                        <div className="menu__info-bag-dropdown-buttons">
+                                            <div>
+                                                <h6>TOTAL:</h6>
+                                                <p>$ 777.00</p>
+                                            </div>
+                                            <div>VIEW CART</div>
+                                            <div>BUY NOW</div>
+                                        </div>
+                                    </div>
+                                )
+                            }
+
+                        </li>
+                        <li className="menu__info-heart">
+                            <i className="bi bi-heart">
+                                <span>2</span>
+                            </i>
+                        </li>
+                    </ul>
+
 
                 </div>
             </div>
