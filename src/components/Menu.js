@@ -1,6 +1,12 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 
 const Menu = () => {
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+
+    }, []);
 
     return (
         <div className="sticky-top menu">
@@ -10,8 +16,14 @@ const Menu = () => {
                     <div className="navbar-brand">
 
                         <div className="dropdown">
-                            <button className="btn btn-secondary dropdown-toggle" type="button"
-                                    id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button
+                                className="btn btn-secondary dropdown-toggle"
+                                type="button"
+                                id="dropdownMenuButton1"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
                                 <i className="bi bi-card-list"/>
                                 CATEGORIES
                             </button>

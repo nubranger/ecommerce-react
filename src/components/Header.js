@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     Button,
     Col,
@@ -8,8 +8,12 @@ import {
     InputGroupAddon,
     Row,
 } from "reactstrap";
+import HeaderCart from "./HeaderCart";
 
 const Header = () => {
+
+    const [showCart, setShowCart] = useState(false);
+
 
     return (
         <div className="header">
@@ -43,7 +47,7 @@ const Header = () => {
                         </Col>
                         <Col lg="7" md="7">
                             <InputGroup>
-                                <Input type="text" name="search" id="search" placeholder="What do you need?" />
+                                <Input type="text" name="search" id="search" placeholder="What do you need?"/>
                                 <InputGroupAddon addonType="prepend">
                                     <Button>
                                         <i className="bi bi-search"/>
@@ -59,9 +63,31 @@ const Header = () => {
                                     </i>
                                 </li>
                                 <li className="header__middle-bag">
-                                    <i className="bi bi-bag">
-                                        <span>77</span>
-                                    </i>
+
+                                    <div onMouseEnter={() => setShowCart(true)} className="header__middle-bag-cart">
+                                        <i className="bi bi-bag">
+                                            <span>77</span>
+                                        </i>
+                                    </div>
+                                    {
+                                        showCart && (
+                                            <div
+                                                onMouseLeave={() => setShowCart(false)}
+                                                className="header__middle-bag-dropdown"
+                                            >
+                                                <HeaderCart/>
+                                                <div className="header__middle-bag-dropdown-buttons">
+                                                    <div>
+                                                        <h6>TOTAL:</h6>
+                                                        <p>$ 777.00</p>
+                                                    </div>
+                                                    <div>VIEW CART</div>
+                                                    <div>BUY NOW</div>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+
                                 </li>
                                 <li className="header__middle-cart-price">
                                     $ 777.00
