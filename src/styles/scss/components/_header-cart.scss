@@ -11,9 +11,9 @@
     width: 350px;
     position: absolute;
     z-index: 2000;
-    animation: moveInBottom .1s ease-out;
+    animation: moveInBottom .2s ease-out;
     animation-fill-mode: backwards;
-    right: -90px;
+    right: -150px;
     margin-top: 9px;
 
     &-buttons {
@@ -68,13 +68,15 @@
           font-size: 14px;
           width: 100%;
           padding: 5px;
+          border-bottom: 1px solid #E5E5E5;
 
           img {
-            width: 50px;
+            width: 20%;
             float: left;
           }
 
           div {
+            width: 70%;
             float: left;
 
             p {
@@ -83,6 +85,7 @@
           }
 
           i {
+            width: 8%;
             float: right;
             line-height: 2.4;
             font-size: 25px;

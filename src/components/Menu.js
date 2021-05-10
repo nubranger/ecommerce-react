@@ -11,6 +11,13 @@ const Menu = () => {
     useEffect(() => {
 
         setMenuPosition(menuRef.current.offsetTop);
+        const menuCart = () => {
+            if (window.pageYOffset > menuPosition) {
+                setShowMenuCart(true);
+            } else {
+                setShowMenuCart(false);
+            }
+        }
 
         const watchScroll = () => {
             window.addEventListener("scroll", menuCart);
@@ -24,14 +31,6 @@ const Menu = () => {
     }, [menuPosition]);
 
 
-    const menuCart = () => {
-        if (window.pageYOffset > menuPosition) {
-            setShowMenuCart(true);
-        } else {
-            setShowMenuCart(false);
-        }
-
-    }
 
 
     return (
