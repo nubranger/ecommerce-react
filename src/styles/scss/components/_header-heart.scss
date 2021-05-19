@@ -18,6 +18,31 @@
       right: 50px;
       margin-top: 9px;
 
+      &-top {
+        display: inline-block;
+        width: 100%;
+        background-color: #212529;
+        color:white;
+        text-align: center;
+
+        h4 {
+          margin: 0;
+          display: inline-block;
+          letter-spacing: 3px;
+          line-height: 1.9;
+        }
+
+        i {
+          display: inline-block;
+          font-size: 30px;
+          float: right;
+          cursor: pointer;
+          font-weight: 700;
+          color:white;
+          padding: 0 10px;
+        }
+      }
+
       &-items {
         height: 250px;
         overflow-y: auto;

@@ -1,19 +1,25 @@
-import Header from "./components/Header";
-import Shop from "./components/Shop";
-import Footer from "./components/Footer";
-import Menu from "./components/Menu";
-import Advertisement from "./components/Advertisement";
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Dashboard from "./pages/Dashboard";
+import Error from "./pages/Error";
+import {useContext} from "react";
+import {EshopContext} from "./context/context";
 
 const App = () => {
+    const { isLoading } = useContext(EshopContext);
 
     return (
         <>
-            <Advertisement/>
-            <Header/>
-            <Menu/>
-            <Shop/>
-            {/*<Hero/>*/}
-            <Footer/>
+            <Router>
+                <Switch>
+                    <Route path="/" exact>
+                        {/*{isLoading ? <Loading/> : <Dashboard/>}*/}
+                        <Dashboard/>
+                    </Route>
+                    <Route path='*'>
+                        <Error/>
+                    </Route>
+                </Switch>
+            </Router>
         </>
     );
 }
