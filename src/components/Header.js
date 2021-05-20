@@ -128,8 +128,8 @@ const Header = () => {
                                                             <h6>TOTAL:</h6>
                                                             <p>$ 777.00</p>
                                                         </div>
-                                                        <div>VIEW CART</div>
-                                                        <div>BUY NOW</div>
+                                                        <Button>VIEW CART</Button>
+                                                        <Button className="mt-2 btn-dark">BUY NOW</Button>
                                                     </div>
                                                 </div>
                                             </div>

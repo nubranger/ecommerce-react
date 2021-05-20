@@ -1,5 +1,5 @@
 .header__middle-bag {
-    position: relative;
+  position: relative;
 
   &-cart {
     cursor: pointer;
@@ -20,7 +20,7 @@
       display: inline-block;
       width: 100%;
       background-color: #212529;
-      color:white;
+      color: white;
       text-align: center;
 
       h4 {
@@ -36,7 +36,7 @@
         float: right;
         cursor: pointer;
         font-weight: 700;
-        color:white;
+        color: white;
         padding: 0 10px;
       }
     }
@@ -59,24 +59,8 @@
         }
       }
 
-      div:nth-child(2) {
-        background-color: #212529;
-        color: white;
-        text-align: center;
-        margin-bottom: 5px;
-        padding: 5px;
-        cursor: pointer;
-        //font-weight: bold;
-
-      }
-
-      div:nth-child(3) {
-        font-weight:bolder;
-        color: white;
-        cursor: pointer;
-        padding: 5px;
-        text-align: center;
-        background-color: #6c757d;
+      button {
+        width: 100%;
       }
     }
 
