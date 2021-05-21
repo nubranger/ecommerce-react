@@ -40,7 +40,7 @@ const data = [
         id: 5,
         title: "APPLE iPhone 11 64GB Purple",
         description: "Very nice smartphone",
-        price: 500.77,
+        price: 5500.77,
         img:
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
         amount: 1
@@ -49,7 +49,7 @@ const data = [
         id: 6,
         title: "APPLE iPhone 11 64GB Purple",
         description: "Very nice smartphone",
-        price: 500.77,
+        price: 2300.77,
         img:
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
         amount: 1
@@ -58,7 +58,7 @@ const data = [
         id: 7,
         title: "APPLE iPhone 11 64GB Purple",
         description: "Very nice smartphone",
-        price: 500.77,
+        price: 100.77,
         img:
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
         amount: 1
@@ -67,7 +67,7 @@ const data = [
         id: 8,
         title: "APPLE iPhone 11 64GB Purple",
         description: "Very nice smartphone",
-        price: 500.77,
+        price: 900.77,
         img:
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
         amount: 1
@@ -76,7 +76,7 @@ const data = [
         id: 9,
         title: "APPLE iPhone 11 64GB Purple",
         description: "Very nice smartphone",
-        price: 500.77,
+        price: 560.77,
         img:
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
         amount: 1
@@ -85,7 +85,7 @@ const data = [
         id: 10,
         title: "APPLE iPhone 11 64GB Purple",
         description: "Very nice smartphone",
-        price: 500.77,
+        price: 380.77,
         img:
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
         amount: 1

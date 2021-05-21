@@ -14,8 +14,8 @@ const Dashboard = () => {
             <Account/>
             <Header/>
             <Menu/>
-            <Hero/>
             <Shop/>
+            <Hero/>
             <Footer/>
         </>
     );
