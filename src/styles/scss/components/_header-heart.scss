@@ -44,11 +44,15 @@
       }
 
       &-items {
-        height: 250px;
+        max-height: 250px;
         overflow-y: auto;
 
         ul {
           padding: 5px;
+
+          h5 {
+            text-align: center;
+          }
 
           li {
             display: inline-block;

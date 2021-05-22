@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
 import {EshopContext} from "../context/context";
-import {Button, Form, FormGroup, Input, Label} from "reactstrap";
+import {Button, Form, Input} from "reactstrap";
 
 const Account = () => {
-    const {toggleAccount, setToggleAccount, setPassword, setEmail, handleAccount, error} = useContext(EshopContext);
+    const {toggleAccount, setToggleAccount, setEmail, handleAccount} = useContext(EshopContext);
 
     return (
         toggleAccount && (

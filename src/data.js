@@ -7,7 +7,8 @@ const data = [
         price: 499.99,
         img:
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
-        amount: 1
+        amount: 1,
+        category: "category1"
     },
     {
         id: 2,
@@ -16,7 +17,8 @@ const data = [
         price: 855.44,
         img:
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
-        amount: 1
+        amount: 1,
+        category: "category1"
     },
     {
         id: 3,
@@ -25,7 +27,8 @@ const data = [
         price: 500.77,
         img:
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
-        amount: 1
+        amount: 1,
+        category: "category2"
     },
     {
         id: 4,
@@ -34,7 +37,8 @@ const data = [
         price: 855.44,
         img:
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
-        amount: 1
+        amount: 1,
+        category: "category2"
     },
     {
         id: 5,
@@ -43,7 +47,8 @@ const data = [
         price: 5500.77,
         img:
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
-        amount: 1
+        amount: 1,
+        category: "category2"
     },
     {
         id: 6,
@@ -52,7 +57,8 @@ const data = [
         price: 2300.77,
         img:
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
-        amount: 1
+        amount: 1,
+        category: "category3"
     },
     {
         id: 7,
@@ -61,7 +67,8 @@ const data = [
         price: 100.77,
         img:
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
-        amount: 1
+        amount: 1,
+        category: "category3"
     },
     {
         id: 8,
@@ -70,7 +77,8 @@ const data = [
         price: 900.77,
         img:
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
-        amount: 1
+        amount: 1,
+        category: "category4"
     },
     {
         id: 9,
@@ -79,7 +87,8 @@ const data = [
         price: 560.77,
         img:
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
-        amount: 1
+        amount: 1,
+        category: "category5"
     },
     {
         id: 10,
@@ -88,7 +97,8 @@ const data = [
         price: 380.77,
         img:
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
-        amount: 1
+        amount: 1,
+        category: "category4"
     }
 ];
 

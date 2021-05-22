@@ -1,22 +1,19 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Card, Col, Row} from "reactstrap";
-import data from "../data";
-import {EshopContext} from "../context/context";
 import Sort from "./Sort";
+import {EshopContext} from "../context/context";
 
 
 const Items = () => {
-    const {products} = useContext(EshopContext);
+    const {handleLikeItems, products, setProducts, likedItems} = useContext(EshopContext);
     const [grid, setGrid] = useState(3);
-    const [productsList, setProductsList] = useState(data);
 
     const handleGrid = (prop) => {
         setGrid(prop);
     }
 
-
     const handlePrice = (props) => {
-        let tempProducts = [...productsList]
+        let tempProducts = [...products]
 
         if (props === "up") {
             tempProducts = tempProducts.sort((a, b) => {
@@ -30,11 +27,11 @@ const Items = () => {
             });
         }
 
-        setProductsList(tempProducts);
+        setProducts(tempProducts);
     }
 
     const handleName = (props) => {
-        let tempProducts = [...productsList];
+        let tempProducts = [...products];
 
         if (props === "az") {
             tempProducts = tempProducts.sort((a, b) => {
@@ -48,9 +45,8 @@ const Items = () => {
             })
         }
 
-        setProductsList(tempProducts);
+        setProducts(tempProducts);
     }
-
 
     return (
         <div className="items">
@@ -59,20 +55,23 @@ const Items = () => {
                 <Sort handleName={handleName} handlePrice={handlePrice} handleGrid={handleGrid}/>
             </div>
             <Row className="mt-3">
-
                 {
-                    productsList.map((item) =>
-
-                        (
+                    products.map((item) => {
+                        return (
                             <Col key={item.id} lg={grid}>
                                 <Card>
                                     <img src={item.img} alt={item.title}/>
                                     <h6>{item.title}</h6>
                                     <p>$ {item.price}</p>
+                                    <i
+                                        onClick={() => handleLikeItems(item.id)}
+                                        className={likedItems.some((liked) => liked.id === item.id) ? "bi bi-heart-fill" : "bi bi-heart"}
+                                    />
+                                    <i className="bi bi-cart-plus"/>
                                 </Card>
                             </Col>
                         )
-                    )
+                    })
                 }
             </Row>
         </div>

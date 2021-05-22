@@ -66,11 +66,15 @@
 
 
     &-items {
-      height: 200px;
+      max-height: 200px;
       overflow-y: auto;
 
       ul {
         padding: 5px;
+
+        h5 {
+          text-align: center;
+        }
 
         li {
           display: inline-block;

@@ -1,8 +1,10 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import HeaderCart from "./HeaderCart";
+import {EshopContext} from "../context/context";
 
 const Menu = () => {
 
+    const {likedItems, cartList} = useContext(EshopContext);
     const [showCart, setShowCart] = useState(false);
     const menuRef = useRef(null);
     const [menuPosition, setMenuPosition] = useState(null);
@@ -83,13 +85,13 @@ const Menu = () => {
                                 // onMouseEnter={() => setShowCart(true)}
                                 className="menu__info-bag-cart">
                                 <i className="bi bi-bag">
-                                    <span>77</span>
+                                    <span>{cartList.length}</span>
                                 </i>
                             </div>
                             {
                                 showCart && (
                                     <div
-                                        // onMouseLeave={() => setShowCart(false)}
+                                        onMouseLeave={() => setShowCart(false)}
                                         className="menu__info-bag-dropdown"
                                     >
                                         <HeaderCart/>
@@ -108,7 +110,7 @@ const Menu = () => {
                         </li>
                         <li className="menu__info-heart">
                             <i className="bi bi-heart">
-                                <span>2</span>
+                                <span>{likedItems.length}</span>
                             </i>
                         </li>
                     </ul>

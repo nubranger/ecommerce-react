@@ -1,4 +1,5 @@
 import React, {useState, useEffect, createContext} from 'react';
+import data from "../data";
 import axios from 'axios';
 import {getProducts} from '../api/products_api';
 
@@ -6,14 +7,41 @@ const EshopContext = createContext();
 
 const EshopProvider = ({children}) => {
 
+    const getStorage = () => {
+        let storage = [];
+        if (localStorage.getItem('likedItems')) {
+            storage = JSON.parse(localStorage.getItem('likedItems'));
+        }
+        return storage;
+    };
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [account, setAccount] = useState({});
     const [isLoading, setIsLoading] = useState(true);
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState(data);
     const [toggleAccount, setToggleAccount] = useState(false);
+    const [likedItems, setLikedItems] = useState(getStorage());
+    const [cartList, setCartList] = useState([]);
 
+    const handleLikeItems = (props) => {
+        let tempLikedProducts = [...likedItems];
+
+        let filteredItem = products.filter(item => item.id === props);
+
+        if (!tempLikedProducts.some((liked) => liked.id === props)) {
+            tempLikedProducts.push(...filteredItem);
+            setLikedItems(tempLikedProducts);
+            localStorage.setItem("likedItems", JSON.stringify(tempLikedProducts));
+        }
+
+        if (likedItems.some((liked) => liked.id === filteredItem[0].id)) {
+            filteredItem = likedItems.filter(item => item.id !== props);
+            setLikedItems(filteredItem);
+            localStorage.setItem("likedItems", JSON.stringify(filteredItem));
+        }
+    }
 
     const handleAccount = (e) => {
         e.preventDefault();
@@ -60,19 +88,14 @@ const EshopProvider = ({children}) => {
         getProducts().then(data => {
             setProducts(data);
         })
-            .catch((error)=> {console.error(error)})
-            .finally(() => {setIsLoading(false);
-        });
+            .catch((error) => {
+                console.error(error)
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
 
     }, []);
-
-    useEffect(() => {
-        return () => {
-            handleAccount()
-        };
-    }, []);
-
-
 
     useEffect(() => {
 
@@ -92,9 +115,11 @@ const EshopProvider = ({children}) => {
                 setEmail,
                 handleAccount,
                 account,
-                products,
-                setProducts,
-                toggleAccount, setToggleAccount
+                products, setProducts,
+                toggleAccount, setToggleAccount,
+                handleLikeItems,
+                likedItems, setLikedItems,
+                cartList, setCartList
             }}
         >
             {children}

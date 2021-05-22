@@ -13,7 +13,7 @@ import HeaderHeart from "./HeaderHeart";
 import {EshopContext} from "../context/context";
 
 const Header = () => {
-    const {account, toggleAccount, setToggleAccount} = useContext(EshopContext);
+    const {toggleAccount, setToggleAccount, likedItems, cartList} = useContext(EshopContext);
 
 
     const [showCart, setShowCart] = useState(false);
@@ -84,7 +84,7 @@ const Header = () => {
                                         className="header__middle-heart-list"
                                     >
                                         <i className="bi bi-heart">
-                                            <span>2</span>
+                                            <span>{likedItems.length}</span>
                                         </i>
                                     </div>
 
@@ -113,7 +113,7 @@ const Header = () => {
                                         className="header__middle-bag-cart"
                                     >
                                         <i className="bi bi-bag">
-                                            <span>77</span>
+                                            <span>{cartList.length}</span>
                                         </i>
                                     </div>
                                     {
