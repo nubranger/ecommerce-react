@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {EshopContext} from "../context/context";
 
 const HeaderCart = () => {
-    const {cartList} = useContext(EshopContext);
+    const {cartList, handleCartItems} = useContext(EshopContext);
 
     return (
         <div className="header__middle-bag-dropdown-items">
@@ -19,7 +19,7 @@ const HeaderCart = () => {
                                     <h6>{item.title}</h6>
                                     <p>$ {item.price}</p>
                                 </div>
-                                <i className="bi bi-x"/>
+                                <i onClick={() => handleCartItems(item.id)}  className="bi bi-x"/>
                             </li>
                         ))
                 }

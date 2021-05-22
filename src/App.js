@@ -1,6 +1,9 @@
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import Dashboard from "./pages/Dashboard";
 import Error from "./pages/Error";
+import Shop from "./pages/Shop";
+import Layout from "./components/Layout";
+import Hero from "./pages/Hero";
+import SingleProduct from "./pages/SingleProduct";
 // import {useContext} from "react";
 // import {EshopContext} from "./context/context";
 
@@ -10,15 +13,21 @@ const App = () => {
     return (
         <>
             <Router>
-                <Switch>
-                    <Route path="/" exact>
-                        {/*{isLoading ? <Loading/> : <Dashboard/>}*/}
-                        <Dashboard/>
-                    </Route>
-                    <Route path='*'>
-                        <Error/>
-                    </Route>
-                </Switch>
+                <Layout>
+                    <Switch>
+                        <Route path="/" exact>
+                            <Hero/>
+                        </Route>
+                        <Route path="/shop" exact>
+                            {/*{isLoading ? <Loading/> : <Shop/>}*/}
+                            <Shop/>
+                        </Route>
+                        <Route exact path='/products/:id' children={<SingleProduct />} />
+                        <Route path='*'>
+                            <Error/>
+                        </Route>
+                    </Switch>
+                </Layout>
             </Router>
         </>
     );

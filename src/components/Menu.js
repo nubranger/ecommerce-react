@@ -1,10 +1,11 @@
 import React, {useContext, useEffect, useRef, useState} from 'react';
 import HeaderCart from "./HeaderCart";
 import {EshopContext} from "../context/context";
+import {Link} from "react-router-dom";
 
 const Menu = () => {
 
-    const {likedItems, cartList} = useContext(EshopContext);
+    const {likedItems, cartList, cartTotal} = useContext(EshopContext);
     const [showCart, setShowCart] = useState(false);
     const menuRef = useRef(null);
     const [menuPosition, setMenuPosition] = useState(null);
@@ -69,15 +70,21 @@ const Menu = () => {
 
                     </div>
                     <div className="navbar-nav nav-pills">
+                        <Link to="/">
                         <button className="nav-link active" aria-current="page">HOME</button>
+                        </Link>
+                        <Link to="/shop">
                         <button className="nav-link">SHOP</button>
+                        </Link>
+                        <Link to="/contact">
                         <button className="nav-link">CONTACT</button>
+                        </Link>
                     </div>
 
 
                     <ul className={showMenuCart ? "menu__info" : "fade menu__info"}>
                         <li className="menu__info-cart-price">
-                            $ 777.00
+                            $ {cartTotal}
                         </li>
                         <li className="menu__info-bag">
 

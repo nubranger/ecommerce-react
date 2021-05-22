@@ -11,9 +11,10 @@ import {
 import HeaderCart from "./HeaderCart";
 import HeaderHeart from "./HeaderHeart";
 import {EshopContext} from "../context/context";
+import {Link} from "react-router-dom";
 
 const Header = () => {
-    const {toggleAccount, setToggleAccount, likedItems, cartList} = useContext(EshopContext);
+    const {toggleAccount, setToggleAccount, likedItems, cartList, cartTotal} = useContext(EshopContext);
 
 
     const [showCart, setShowCart] = useState(false);
@@ -45,9 +46,12 @@ const Header = () => {
                                 <span>+370 697 7777777</span>
                             </div>
                         </div>
-                        <div className="header__top-con-profile" >
-                            <i className="secondary bi bi-person-circle" onClick={() => setToggleAccount(!toggleAccount)} />
-                            <i className="bi bi-cart2" />
+                        <div className="header__top-con-profile">
+                            <i className="secondary bi bi-person-circle"
+                               onClick={() => setToggleAccount(!toggleAccount)}/>
+                            <Link to="/cart">
+                                <i className="bi bi-cart2"/>
+                            </Link>
                             {/*{account.username ? <span>{account.username}</span> : <span>Profile</span>}*/}
 
                         </div>
@@ -63,7 +67,9 @@ const Header = () => {
                 <div className="header__middle">
                     <Row>
                         <Col lg="3" md="3">
-                            <img src={require("../img/logo.png").default} alt="logo"/>
+                            <Link to="/">
+                                <img src={require("../img/logo.png").default} alt="logo"/>
+                            </Link>
                         </Col>
                         <Col lg="6" md="6">
                             <InputGroup>
@@ -131,9 +137,11 @@ const Header = () => {
                                                     <div className="header__middle-bag-dropdown-buttons">
                                                         <div>
                                                             <h6>TOTAL:</h6>
-                                                            <p>$ 777.00</p>
+                                                            <p>$ {cartTotal}</p>
                                                         </div>
-                                                        <Button>VIEW CART</Button>
+                                                        <Link to="/cart">
+                                                            <Button>VIEW CART</Button>
+                                                        </Link>
                                                         <Button className="mt-2 btn-dark">BUY NOW</Button>
                                                     </div>
                                                 </div>
@@ -143,7 +151,7 @@ const Header = () => {
 
                                 </li>
                                 <li className="header__middle-cart-price">
-                                    $ 777.00
+                                    $ {cartTotal}
                                 </li>
                             </ul>
                         </Col>

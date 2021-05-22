@@ -7,10 +7,18 @@ const EshopContext = createContext();
 
 const EshopProvider = ({children}) => {
 
-    const getStorage = () => {
+    const getLikedStorage = () => {
         let storage = [];
         if (localStorage.getItem('likedItems')) {
             storage = JSON.parse(localStorage.getItem('likedItems'));
+        }
+        return storage;
+    };
+
+    const getCartStorage = () => {
+        let storage = [];
+        if (localStorage.getItem('cartItems')) {
+            storage = JSON.parse(localStorage.getItem('cartItems'));
         }
         return storage;
     };
@@ -22,8 +30,30 @@ const EshopProvider = ({children}) => {
     const [isLoading, setIsLoading] = useState(true);
     const [products, setProducts] = useState(data);
     const [toggleAccount, setToggleAccount] = useState(false);
-    const [likedItems, setLikedItems] = useState(getStorage());
-    const [cartList, setCartList] = useState([]);
+    const [likedItems, setLikedItems] = useState(getLikedStorage());
+    const [cartList, setCartList] = useState(getCartStorage());
+    const [cartTotal, setCartTotal] = useState(0);
+
+    const countTotal = () => {
+        // console.log("countTotal");
+        let count = cartList.map(item => {
+           return item.price;
+        });
+
+        setCartTotal(0);
+
+        if (count.length > 0) {
+            const reducer = (accumulator, currentValue) => accumulator + currentValue;
+            count.reduce(reducer);
+            setCartTotal(count.reduce(reducer));
+        }
+
+    }
+
+    useEffect(() => {
+            countTotal();
+    }, [cartList]);
+
 
     const handleLikeItems = (props) => {
         let tempLikedProducts = [...likedItems];
@@ -40,6 +70,24 @@ const EshopProvider = ({children}) => {
             filteredItem = likedItems.filter(item => item.id !== props);
             setLikedItems(filteredItem);
             localStorage.setItem("likedItems", JSON.stringify(filteredItem));
+        }
+    }
+
+    const handleCartItems = (props) => {
+        let tempCart = [...cartList];
+
+        let filteredItem = products.filter(item => item.id === props);
+
+        if (!tempCart.some((liked) => liked.id === props)) {
+            tempCart.push(...filteredItem);
+            setCartList(tempCart);
+            localStorage.setItem("cartItems", JSON.stringify(tempCart));
+        }
+
+        if (cartList.some((liked) => liked.id === filteredItem[0].id)) {
+            filteredItem = cartList.filter(item => item.id !== props);
+            setCartList(filteredItem);
+            localStorage.setItem("cartItems", JSON.stringify(filteredItem));
         }
     }
 
@@ -119,7 +167,9 @@ const EshopProvider = ({children}) => {
                 toggleAccount, setToggleAccount,
                 handleLikeItems,
                 likedItems, setLikedItems,
-                cartList, setCartList
+                cartList, setCartList,
+                handleCartItems,
+                cartTotal
             }}
         >
             {children}

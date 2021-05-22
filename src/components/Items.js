@@ -5,7 +5,7 @@ import {EshopContext} from "../context/context";
 
 
 const Items = () => {
-    const {handleLikeItems, products, setProducts, likedItems} = useContext(EshopContext);
+    const {handleLikeItems, handleCartItems, products, setProducts, likedItems, cartList} = useContext(EshopContext);
     const [grid, setGrid] = useState(3);
 
     const handleGrid = (prop) => {
@@ -67,7 +67,10 @@ const Items = () => {
                                         onClick={() => handleLikeItems(item.id)}
                                         className={likedItems.some((liked) => liked.id === item.id) ? "bi bi-heart-fill" : "bi bi-heart"}
                                     />
-                                    <i className="bi bi-cart-plus"/>
+                                    <i
+                                        onClick={() => handleCartItems(item.id)}
+                                        className={cartList.some((cartItem) => cartItem.id === item.id) ? "bi bi-cart-check" : "bi bi-cart-plus"}
+                                    />
                                 </Card>
                             </Col>
                         )

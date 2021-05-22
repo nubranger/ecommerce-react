@@ -1,7 +1,7 @@
 import React from 'react';
 import {Col, Container, Row} from "reactstrap";
-import Breadcrumb from "./Breadcrumb";
-import Items from "./Items";
+import Breadcrumb from "../components/Breadcrumb";
+import Items from "../components/Items";
 
 const Shop = () => {
     return (
