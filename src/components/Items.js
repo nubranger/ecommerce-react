@@ -1,12 +1,13 @@
 import React, {useContext, useState} from 'react';
-import {Card, Col, Row} from "reactstrap";
+import {Row} from "reactstrap";
 import Sort from "./Sort";
 import {EshopContext} from "../context/context";
+import Item from "./Item";
 
 
 const Items = () => {
-    const {handleLikeItems, handleCartItems, products, setProducts, likedItems, cartList} = useContext(EshopContext);
-    const [grid, setGrid] = useState(3);
+    const {products, setProducts} = useContext(EshopContext);
+    const [grid, setGrid] = useState(4);
 
     const handleGrid = (prop) => {
         setGrid(prop);
@@ -57,22 +58,9 @@ const Items = () => {
             <Row className="mt-3">
                 {
                     products.map((item) => {
+
                         return (
-                            <Col key={item.id} lg={grid}>
-                                <Card>
-                                    <img src={item.img} alt={item.title}/>
-                                    <h6>{item.title}</h6>
-                                    <p>$ {item.price}</p>
-                                    <i
-                                        onClick={() => handleLikeItems(item.id)}
-                                        className={likedItems.some((liked) => liked.id === item.id) ? "bi bi-heart-fill" : "bi bi-heart"}
-                                    />
-                                    <i
-                                        onClick={() => handleCartItems(item.id)}
-                                        className={cartList.some((cartItem) => cartItem.id === item.id) ? "bi bi-cart-check" : "bi bi-cart-plus"}
-                                    />
-                                </Card>
-                            </Col>
+                            <Item key={item.id} grid={grid} item={item}/>
                         )
                     })
                 }

@@ -2,7 +2,16 @@
   position: relative;
 
   &-cart {
-    cursor: pointer;
+    //cursor: pointer;
+    i {
+      color: black;
+
+      &:hover {
+        color: #6c757d;
+        transition: .2s linear;
+      }
+    }
+
   }
 
   &-dropdown {

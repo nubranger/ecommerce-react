@@ -14,8 +14,15 @@ import {EshopContext} from "../context/context";
 import {Link} from "react-router-dom";
 
 const Header = () => {
-    const {toggleAccount, setToggleAccount, likedItems, cartList, cartTotal} = useContext(EshopContext);
-
+    const {
+        toggleAccount,
+        setToggleAccount,
+        likedItems,
+        cartList,
+        cartTotal,
+        handleLikeItems,
+        handleCartItems
+    } = useContext(EshopContext);
 
     const [showCart, setShowCart] = useState(false);
     const [showHeart, setShowHeart] = useState(false);
@@ -106,6 +113,10 @@ const Header = () => {
                                                 </div>
                                                 <div>
                                                     <HeaderHeart/>
+                                                    <div className="header__middle-bag-dropdown-buttons">
+                                                        <Button onClick={() => handleLikeItems("clear")}>CLEAR
+                                                            LIST</Button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         )
@@ -118,9 +129,11 @@ const Header = () => {
                                         // onMouseEnter={() => setShowCart(true)}
                                         className="header__middle-bag-cart"
                                     >
-                                        <i className="bi bi-bag">
-                                            <span>{cartList.length}</span>
-                                        </i>
+                                        <Link to="/cart">
+                                            <i className="bi bi-bag">
+                                                <span>{cartList.length}</span>
+                                            </i>
+                                        </Link>
                                     </div>
                                     {
                                         showCart && (
@@ -139,10 +152,11 @@ const Header = () => {
                                                             <h6>TOTAL:</h6>
                                                             <p>$ {cartTotal}</p>
                                                         </div>
+                                                        <Button onClick={() => handleCartItems("clear")}>CLEAR
+                                                            LIST</Button>
                                                         <Link to="/cart">
-                                                            <Button>VIEW CART</Button>
+                                                            <Button className="mt-2 btn-dark">VIEW CART</Button>
                                                         </Link>
-                                                        <Button className="mt-2 btn-dark">BUY NOW</Button>
                                                     </div>
                                                 </div>
                                             </div>

@@ -5,8 +5,12 @@ const data = [
         title: "Samsung Galaxy S21 Ultra",
         description: "Very nice smartphone",
         price: 499.99,
-        img:
+        discount: 299,
+        img: [
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
+            "https://purepng.com/public/uploads/large/purepng.com-huawai-phonesmartphoneandroidgooglephoneapplicationhuawai-phone-211519339895jhwgr.png",
+            "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-251530689596wod8s.png"
+        ],
         amount: 1,
         category: "category1"
     },
@@ -15,9 +19,13 @@ const data = [
         title: "OnePlus Nord N10 5G",
         description: "Very nice smartphone",
         price: 855.44,
-        img:
+        discount: 700.00,
+        img: [
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
-        amount: 1,
+            "https://purepng.com/public/uploads/large/purepng.com-huawai-phonesmartphoneandroidgooglephoneapplicationhuawai-phone-211519339895jhwgr.png",
+            "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-251530689596wod8s.png"
+        ],
+        amount: 0,
         category: "category1"
     },
     {
@@ -25,8 +33,12 @@ const data = [
         title: "Samsung Galaxy S20 FE 5G",
         description: "Very nice smartphone",
         price: 500.77,
-        img:
+        discount: 400.00,
+        img: [
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
+            "https://purepng.com/public/uploads/large/purepng.com-huawai-phonesmartphoneandroidgooglephoneapplicationhuawai-phone-211519339895jhwgr.png",
+            "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-251530689596wod8s.png"
+        ],
         amount: 1,
         category: "category2"
     },
@@ -35,9 +47,13 @@ const data = [
         title: "APPLE iPhone 11 256GB Red",
         description: "Very nice smartphone",
         price: 855.44,
-        img:
+        discount: 0,
+        img: [
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
-        amount: 1,
+            "https://purepng.com/public/uploads/large/purepng.com-huawai-phonesmartphoneandroidgooglephoneapplicationhuawai-phone-211519339895jhwgr.png",
+            "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-251530689596wod8s.png"
+        ],
+        amount: 0,
         category: "category2"
     },
     {
@@ -45,8 +61,12 @@ const data = [
         title: "APPLE iPhone 11 64GB Purple",
         description: "Very nice smartphone",
         price: 5500.77,
-        img:
+        discount: 0,
+        img: [
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
+            "https://purepng.com/public/uploads/large/purepng.com-huawai-phonesmartphoneandroidgooglephoneapplicationhuawai-phone-211519339895jhwgr.png",
+            "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-251530689596wod8s.png"
+        ],
         amount: 1,
         category: "category2"
     },
@@ -55,8 +75,12 @@ const data = [
         title: "APPLE iPhone 11 64GB Purple",
         description: "Very nice smartphone",
         price: 2300.77,
-        img:
+        discount: 0,
+        img: [
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
+            "https://purepng.com/public/uploads/large/purepng.com-huawai-phonesmartphoneandroidgooglephoneapplicationhuawai-phone-211519339895jhwgr.png",
+            "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-251530689596wod8s.png"
+        ],
         amount: 1,
         category: "category3"
     },
@@ -65,8 +89,12 @@ const data = [
         title: "APPLE iPhone 11 64GB Purple",
         description: "Very nice smartphone",
         price: 100.77,
-        img:
+        discount: 0,
+        img: [
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
+            "https://purepng.com/public/uploads/large/purepng.com-huawai-phonesmartphoneandroidgooglephoneapplicationhuawai-phone-211519339895jhwgr.png",
+            "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-251530689596wod8s.png"
+        ],
         amount: 1,
         category: "category3"
     },
@@ -75,8 +103,12 @@ const data = [
         title: "APPLE iPhone 11 64GB Purple",
         description: "Very nice smartphone",
         price: 900.77,
-        img:
+        discount: 0,
+        img: [
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
+            "https://purepng.com/public/uploads/large/purepng.com-huawai-phonesmartphoneandroidgooglephoneapplicationhuawai-phone-211519339895jhwgr.png",
+            "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-251530689596wod8s.png"
+        ],
         amount: 1,
         category: "category4"
     },
@@ -85,8 +117,12 @@ const data = [
         title: "APPLE iPhone 11 64GB Purple",
         description: "Very nice smartphone",
         price: 560.77,
-        img:
+        discount: 0,
+        img: [
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
+            "https://purepng.com/public/uploads/large/purepng.com-huawai-phonesmartphoneandroidgooglephoneapplicationhuawai-phone-211519339895jhwgr.png",
+            "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-251530689596wod8s.png"
+        ],
         amount: 1,
         category: "category5"
     },
@@ -95,8 +131,12 @@ const data = [
         title: "APPLE iPhone 11 64GB Purple",
         description: "Very nice smartphone",
         price: 380.77,
-        img:
+        discount: 0,
+        img: [
             "https://purepng.com/public/uploads/large/purepng.com-asus-smartphonepersonal-computersmartphonemobile-operating-systemcellular-phonephilipsandroid-1701528390817qbpuc.png",
+            "https://purepng.com/public/uploads/large/purepng.com-huawai-phonesmartphoneandroidgooglephoneapplicationhuawai-phone-211519339895jhwgr.png",
+            "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-251530689596wod8s.png"
+        ],
         amount: 1,
         category: "category4"
     }

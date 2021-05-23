@@ -1,12 +1,10 @@
 import React, {useContext, useEffect, useRef, useState} from 'react';
-import HeaderCart from "./HeaderCart";
 import {EshopContext} from "../context/context";
 import {Link} from "react-router-dom";
 
 const Menu = () => {
 
     const {likedItems, cartList, cartTotal} = useContext(EshopContext);
-    const [showCart, setShowCart] = useState(false);
     const menuRef = useRef(null);
     const [menuPosition, setMenuPosition] = useState(null);
     const [showMenuCart, setShowMenuCart] = useState(false);
@@ -32,8 +30,6 @@ const Menu = () => {
         };
 
     }, [menuPosition]);
-
-
 
 
     return (
@@ -71,49 +67,28 @@ const Menu = () => {
                     </div>
                     <div className="navbar-nav nav-pills">
                         <Link to="/">
-                        <button className="nav-link active" aria-current="page">HOME</button>
+                            <button className="nav-link active" aria-current="page">HOME</button>
                         </Link>
                         <Link to="/shop">
-                        <button className="nav-link">SHOP</button>
+                            <button className="nav-link">SHOP</button>
                         </Link>
                         <Link to="/contact">
-                        <button className="nav-link">CONTACT</button>
+                            <button className="nav-link">CONTACT</button>
                         </Link>
                     </div>
 
 
                     <ul className={showMenuCart ? "menu__info" : "fade menu__info"}>
                         <li className="menu__info-cart-price">
-                            $ {cartTotal}
+                            ${cartTotal}
                         </li>
                         <li className="menu__info-bag">
-
                             <div
-                                // onMouseEnter={() => setShowCart(true)}
                                 className="menu__info-bag-cart">
                                 <i className="bi bi-bag">
                                     <span>{cartList.length}</span>
                                 </i>
                             </div>
-                            {
-                                showCart && (
-                                    <div
-                                        onMouseLeave={() => setShowCart(false)}
-                                        className="menu__info-bag-dropdown"
-                                    >
-                                        <HeaderCart/>
-                                        <div className="menu__info-bag-dropdown-buttons">
-                                            <div>
-                                                <h6>TOTAL:</h6>
-                                                <p>$ 777.00</p>
-                                            </div>
-                                            <div>VIEW CART</div>
-                                            <div>BUY NOW</div>
-                                        </div>
-                                    </div>
-                                )
-                            }
-
                         </li>
                         <li className="menu__info-heart">
                             <i className="bi bi-heart">

@@ -14,7 +14,7 @@ const HeaderCart = () => {
                         :
                         cartList.map((item) => (
                             <li key={item.id}>
-                                <img src={item.img} alt={item.title}/>
+                                <img src={item.img[0]} alt={item.title}/>
                                 <div>
                                     <h6>{item.title}</h6>
                                     <p>$ {item.price}</p>

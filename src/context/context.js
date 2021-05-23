@@ -37,57 +37,77 @@ const EshopProvider = ({children}) => {
     const countTotal = () => {
         // console.log("countTotal");
         let count = cartList.map(item => {
-           return item.price;
+            return item.price;
         });
 
-        setCartTotal(0);
+        let zero = 0
+        setCartTotal(zero.toFixed(2));
 
         if (count.length > 0) {
             const reducer = (accumulator, currentValue) => accumulator + currentValue;
             count.reduce(reducer);
-            setCartTotal(count.reduce(reducer));
+            setCartTotal(count.reduce(reducer).toFixed(2));
         }
 
     }
 
     useEffect(() => {
-            countTotal();
+        countTotal();
     }, [cartList]);
 
 
     const handleLikeItems = (props) => {
         let tempLikedProducts = [...likedItems];
 
-        let filteredItem = products.filter(item => item.id === props);
+        if (Number.isInteger(props)) {
 
-        if (!tempLikedProducts.some((liked) => liked.id === props)) {
-            tempLikedProducts.push(...filteredItem);
-            setLikedItems(tempLikedProducts);
-            localStorage.setItem("likedItems", JSON.stringify(tempLikedProducts));
+            let filteredItem = products.filter(item => item.id === props);
+
+            if (!tempLikedProducts.some((liked) => liked.id === props)) {
+                tempLikedProducts.push(...filteredItem);
+                setLikedItems(tempLikedProducts);
+                localStorage.setItem("likedItems", JSON.stringify(tempLikedProducts));
+            }
+
+            if (likedItems.some((liked) => liked.id === filteredItem[0].id)) {
+                filteredItem = likedItems.filter(item => item.id !== props);
+                setLikedItems(filteredItem);
+                localStorage.setItem("likedItems", JSON.stringify(filteredItem));
+            }
         }
 
-        if (likedItems.some((liked) => liked.id === filteredItem[0].id)) {
-            filteredItem = likedItems.filter(item => item.id !== props);
-            setLikedItems(filteredItem);
-            localStorage.setItem("likedItems", JSON.stringify(filteredItem));
+
+        if (props === "clear") {
+
+            setLikedItems([]);
+            localStorage.setItem("likedItems", JSON.stringify([]));
         }
     }
 
     const handleCartItems = (props) => {
         let tempCart = [...cartList];
 
-        let filteredItem = products.filter(item => item.id === props);
+        if (Number.isInteger(props)) {
 
-        if (!tempCart.some((liked) => liked.id === props)) {
-            tempCart.push(...filteredItem);
-            setCartList(tempCart);
-            localStorage.setItem("cartItems", JSON.stringify(tempCart));
+            let filteredItem = products.filter(item => item.id === props);
+
+            if (!tempCart.some((liked) => liked.id === props)) {
+                tempCart.push(...filteredItem);
+                setCartList(tempCart);
+                localStorage.setItem("cartItems", JSON.stringify(tempCart));
+            }
+
+            if (cartList.some((liked) => liked.id === filteredItem[0].id)) {
+                filteredItem = cartList.filter(item => item.id !== props);
+                setCartList(filteredItem);
+                localStorage.setItem("cartItems", JSON.stringify(filteredItem));
+            }
         }
 
-        if (cartList.some((liked) => liked.id === filteredItem[0].id)) {
-            filteredItem = cartList.filter(item => item.id !== props);
-            setCartList(filteredItem);
-            localStorage.setItem("cartItems", JSON.stringify(filteredItem));
+        if (props === "clear") {
+
+            setCartList([]);
+            localStorage.setItem("cartItems", JSON.stringify([]));
         }
     }
 

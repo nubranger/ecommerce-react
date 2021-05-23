@@ -4,6 +4,9 @@ import {Pagination, PaginationItem, PaginationLink} from "reactstrap";
 const Sort = ({handleGrid, handlePrice, handleName}) => {
     return (
         <div className="sort">
+            <div className="sort__filters">
+                SHOW/HIDE filters
+            </div>
             <div className="sort__grid">
                 <i className="bi bi-grid"/>
                 <span>View:</span>
