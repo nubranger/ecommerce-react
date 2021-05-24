@@ -4,6 +4,7 @@ import Shop from "./pages/Shop";
 import Layout from "./components/Layout";
 import Hero from "./pages/Hero";
 import SingleProduct from "./pages/SingleProduct";
+import Cart from "./pages/Cart";
 // import {useContext} from "react";
 // import {EshopContext} from "./context/context";
 
@@ -22,7 +23,10 @@ const App = () => {
                             {/*{isLoading ? <Loading/> : <Shop/>}*/}
                             <Shop/>
                         </Route>
-                        <Route exact path='/products/:id' children={<SingleProduct />} />
+                        <Route path="/cart" exact>
+                            <Cart/>
+                        </Route>
+                        <Route exact path='/products/:id' children={<SingleProduct/>}/>
                         <Route path='*'>
                             <Error/>
                         </Route>

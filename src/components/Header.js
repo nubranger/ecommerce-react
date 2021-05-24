@@ -57,7 +57,7 @@ const Header = () => {
                             <i className="secondary bi bi-person-circle"
                                onClick={() => setToggleAccount(!toggleAccount)}/>
                             <Link to="/cart">
-                                <i className="bi bi-cart2"/>
+                                <i className="bi bi-bag"/>
                             </Link>
                             {/*{account.username ? <span>{account.username}</span> : <span>Profile</span>}*/}
 
