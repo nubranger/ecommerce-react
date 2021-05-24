@@ -35,10 +35,20 @@ const EshopProvider = ({children}) => {
     const [cartTotal, setCartTotal] = useState(0);
 
     const countTotal = () => {
-        // console.log("countTotal");
         let count = cartList.map(item => {
-            return item.price;
+        let prices = null;
+
+            if (item.price && item.discount) {
+                prices = item.discount
+            }
+            if(item.price && !item.discount){
+                prices = item.price
+            }
+
+            return prices;
         });
+
+        console.log(count);
 
         let zero = 0
         setCartTotal(zero.toFixed(2));

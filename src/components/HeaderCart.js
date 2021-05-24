@@ -17,7 +17,7 @@ const HeaderCart = () => {
                                 <img src={item.img[0]} alt={item.title}/>
                                 <div>
                                     <h6>{item.title}</h6>
-                                    <p>$ {item.price}</p>
+                                    { item.discount ? <div className="items__card-info-discount"> <p>${item.price}</p> <span>${item.discount}</span> </div> : <p>${item.price}</p> }
                                 </div>
                                 <i onClick={() => handleCartItems(item.id)}  className="bi bi-x"/>
                             </li>

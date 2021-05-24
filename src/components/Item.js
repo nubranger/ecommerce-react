@@ -16,7 +16,7 @@ const Item = ({grid, item}) => {
                                 item.img.map((images, index) => {
                                     console.log("render images")
                                     return (
-                                        <div onClick={()=> setSelectImage(index)} key={index}>
+                                        <div onMouseEnter={()=> setSelectImage(index)} key={index}>
                                             <img src={images} alt=""/>
                                         </div>
                                     )
