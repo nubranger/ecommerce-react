@@ -33,22 +33,44 @@ const EshopProvider = ({children}) => {
     const [likedItems, setLikedItems] = useState(getLikedStorage());
     const [cartList, setCartList] = useState(getCartStorage());
     const [cartTotal, setCartTotal] = useState(0);
+    const [cartTotalWithDiscount, setCartTotalWithDiscount] = useState(0);
+    const [promo, setPromo] = useState(0);
+    const [promoCode, setPromoCode] = useState("");
+    const [shipping, setShipping] = useState(4);
+
+    const handlePromo = (e) => {
+        e.preventDefault();
+
+        if (promoCode === "777") {
+            setPromo(20);
+        }
+    }
+
+    // console.log(cartList)
+
+    const handleQuantity = ({id, value}) => {
+        let tempList = [...cartList];
+        tempList.map(item => {
+            if (item.id === id && item.price && item.discount) {
+
+                console.log(item.discount = (item.discount * value));
+                console.log(item);
+            }
+            if (item.id === id && item.price && !item.discount) {
+                console.log(item);
+            }
+
+            return {}
+
+
+        });
+
+    }
 
     const countTotal = () => {
         let count = cartList.map(item => {
-        let prices = null;
-
-            if (item.price && item.discount) {
-                prices = item.discount
-            }
-            if(item.price && !item.discount){
-                prices = item.price
-            }
-
-            return prices;
+            return item.price;
         });
-
-        console.log(count);
 
         let zero = 0
         setCartTotal(zero.toFixed(2));
@@ -58,13 +80,36 @@ const EshopProvider = ({children}) => {
             count.reduce(reducer);
             setCartTotal(count.reduce(reducer).toFixed(2));
         }
+    }
 
+    const countTotalWithDiscount = () => {
+        let count = cartList.map(item => {
+            let prices = null;
+
+            if (item.price && item.discount) {
+                prices = item.discount
+            }
+            if (item.price && !item.discount) {
+                prices = item.price
+            }
+
+            return prices;
+        });
+
+        let zero = 0
+        setCartTotalWithDiscount(zero.toFixed(2));
+
+        if (count.length > 0) {
+            const reducer = (accumulator, currentValue) => accumulator + currentValue;
+            count.reduce(reducer);
+            setCartTotalWithDiscount(count.reduce(reducer).toFixed(2));
+        }
     }
 
     useEffect(() => {
         countTotal();
-    }, [cartList]);
-
+        countTotalWithDiscount();
+    }, [cartList, cartTotal, cartTotalWithDiscount, promo]);
 
     const handleLikeItems = (props) => {
         let tempLikedProducts = [...likedItems];
@@ -86,9 +131,7 @@ const EshopProvider = ({children}) => {
             }
         }
 
-
         if (props === "clear") {
-
             setLikedItems([]);
             localStorage.setItem("likedItems", JSON.stringify([]));
         }
@@ -199,7 +242,14 @@ const EshopProvider = ({children}) => {
                 likedItems, setLikedItems,
                 cartList, setCartList,
                 handleCartItems,
-                cartTotal
+                cartTotal,
+                cartTotalWithDiscount,
+                setCartTotalWithDiscount,
+                handlePromo,
+                promoCode, setPromoCode,
+                promo, setPromo,
+                shipping, setShipping,
+                handleQuantity
             }}
         >
             {children}

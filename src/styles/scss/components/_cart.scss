@@ -77,21 +77,74 @@
   &__bottom {
     margin-top: 10px;
 
-    &--item {
-      display: inline-block;
-      width: 50%;
-    }
+    &--product {
+      margin-top: 20px;
+      display: flex;
+      width: 100%;
+      border-bottom: 1px solid #E5E5E5;
+      flex-direction: row;
+      align-items: flex-start;
+      padding-bottom: 10px;
 
-    &--status {
-      display: inline-block;
-      width: 50%;
+      &-item {
+        display: flex;
+        width: 60%;
+        align-items: center;
+        flex-direction: row;
 
-      h6 {
-        display: inline-block;
-        width: 33%;
-        text-align: center;
+        p {
+          display: inline-block;
+          word-wrap: break-word;
+          width: 50%;
+          font-weight: bold;
+        }
+
+        img {
+          width: 50%;
+        }
+      }
+
+      &-status {
+        display: flex;
+        width: 50%;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+
+        .form-select {
+          display: inline-block;
+          width: 20%;
+          text-align: center;
+          float: right;
+        }
+
+        &-discount {
+          display: inline-block;
+          width: 33%;
+          text-align: center;
+
+          p {
+            text-decoration: line-through;
+            display: inline-block;
+            margin: 0;
+          }
+
+          span {
+            font-size: 18px;
+            color: red;
+            font-weight: bold;
+          }
+        }
+
+        h6 {
+          display: inline-block;
+          width: 33%;
+          text-align: center;
+          float: right;
+        }
       }
     }
+
   }
 
 

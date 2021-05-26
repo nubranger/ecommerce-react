@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 const Menu = () => {
 
-    const {likedItems, cartList, cartTotal} = useContext(EshopContext);
+    const {likedItems, cartList, cartTotalWithDiscount} = useContext(EshopContext);
     const menuRef = useRef(null);
     const [menuPosition, setMenuPosition] = useState(null);
     const [showMenuCart, setShowMenuCart] = useState(false);
@@ -80,7 +80,7 @@ const Menu = () => {
 
                     <ul className={showMenuCart ? "menu__info" : "fade menu__info"}>
                         <li className="menu__info-cart-price">
-                            ${cartTotal}
+                            ${cartTotalWithDiscount}
                         </li>
                         <li className="menu__info-bag">
                             <div

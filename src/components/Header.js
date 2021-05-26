@@ -19,7 +19,7 @@ const Header = () => {
         setToggleAccount,
         likedItems,
         cartList,
-        cartTotal,
+        cartTotalWithDiscount,
         handleLikeItems,
         handleCartItems
     } = useContext(EshopContext);
@@ -150,7 +150,7 @@ const Header = () => {
                                                     <div className="header__middle-bag-dropdown-buttons">
                                                         <div>
                                                             <h6>TOTAL:</h6>
-                                                            <p>${cartTotal}</p>
+                                                            <p>${cartTotalWithDiscount}</p>
                                                         </div>
                                                         <Button onClick={() => handleCartItems("clear")}>CLEAR
                                                             LIST</Button>
@@ -165,7 +165,7 @@ const Header = () => {
 
                                 </li>
                                 <li className="header__middle-cart-price">
-                                    <p>${cartTotal}</p>
+                                    <p>${cartTotalWithDiscount}</p>
                                 </li>
                             </ul>
                         </Col>
