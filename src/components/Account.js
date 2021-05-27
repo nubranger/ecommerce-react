@@ -1,16 +1,18 @@
 import React, {useContext} from 'react';
 import {EshopContext} from "../context/context";
 import {Button, Form, Input} from "reactstrap";
+import {useProfileContext} from "../context/profile_context";
 
 const Account = () => {
-    const {toggleAccount, setToggleAccount, setEmail, handleAccount} = useContext(EshopContext);
+    const {setEmail, handleAccount} = useContext(EshopContext);
+    const {isProfileBarOpen, closeProfileBar} = useProfileContext();
 
     return (
-        toggleAccount && (
+        isProfileBarOpen && (
             <div className="account">
                 <div className="account__top">
                     <h4>Profile</h4>
-                    <i onClick={() => setToggleAccount(false)} className="bi bi-x"/>
+                    <i onClick={closeProfileBar} className="bi bi-x"/>
                 </div>
                 <div className="account__form">
                     <Form onSubmit={handleAccount}>

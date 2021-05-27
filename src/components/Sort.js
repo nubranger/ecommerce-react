@@ -1,7 +1,10 @@
 import React from 'react';
 import {Pagination, PaginationItem, PaginationLink} from "reactstrap";
+import {useSortContext} from "../context/sort_context";
 
-const Sort = ({handleGrid, handlePrice, handleName}) => {
+const Sort = ({handleGrid}) => {
+    const {updateSort} = useSortContext();
+
     return (
         <div className="sort">
             <div className="sort__filters">
@@ -21,23 +24,18 @@ const Sort = ({handleGrid, handlePrice, handleName}) => {
                             3
                         </PaginationLink>
                     </PaginationItem>
-                    <PaginationItem onClick={() => handleGrid(3)}>
-                        <PaginationLink>
-                            4
-                        </PaginationLink>
-                    </PaginationItem>
                 </Pagination>
             </div>
             <div className="sort__price">
                 <i className="bi bi-cash"/>
                 <span>Sort by price:</span>
                 <Pagination size="sm" aria-label="Price">
-                    <PaginationItem onClick={() => handlePrice("up")}>
+                    <PaginationItem onClick={() => updateSort("priceUp")}>
                         <PaginationLink>
                             <i className="bi bi-sort-down-alt"/>
                         </PaginationLink>
                     </PaginationItem>
-                    <PaginationItem onClick={() => handlePrice("down")}>
+                    <PaginationItem onClick={() => updateSort("priceDown")}>
                         <PaginationLink>
                             <i className="bi bi-sort-down"/>
                         </PaginationLink>
@@ -48,19 +46,18 @@ const Sort = ({handleGrid, handlePrice, handleName}) => {
                 <i className="bi bi-filter"/>
                 <span>Sort by name:</span>
                 <Pagination size="sm" aria-label="Name">
-                    <PaginationItem onClick={() => handleName("az")}>
+                    <PaginationItem onClick={() => updateSort("az")}>
                         <PaginationLink>
-                            <i className="bi bi-sort-alpha-down" />
+                            <i className="bi bi-sort-alpha-down"/>
                         </PaginationLink>
                     </PaginationItem>
-                    <PaginationItem onClick={() => handleName("za")}>
+                    <PaginationItem onClick={() => updateSort("za")}>
                         <PaginationLink>
                             <i className="bi bi-sort-alpha-down-alt"/>
                         </PaginationLink>
                     </PaginationItem>
                 </Pagination>
             </div>
-
         </div>
     );
 };

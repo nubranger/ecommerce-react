@@ -1,26 +1,19 @@
-import React, {useContext} from 'react';
+import React, {useState} from 'react';
 import {Col, Container, Form, Row} from "reactstrap";
-import {EshopContext} from "../context/context";
 import CartItem from "../components/CartItem";
+import {useCartContext} from "../context/cart_context";
 
 const Cart = () => {
-    const {
-        cartList,
-        cartTotal,
-        cartTotalWithDiscount,
-        handlePromo,
-        shipping,
-        setPromoCode,
-        promo
-    } = useContext(EshopContext);
 
+    const {cart, total_amount_discount, total_amount, shipping_fee, handlePromo, promo} = useCartContext();
+    const [promoCode, setPromoCode] = useState("");
 
     return (
         <div className="cart">
             <Container>
                 <div className="cart__top mt-3">
                     <h4>SHOPPING
-                        BAG <span>({cartList.length === 1 ? `${cartList.length} ITEM` : `${cartList.length} ITEMS`})</span>
+                        BAG <span>({cart.length === 1 ? `${cart.length} ITEM` : `${cart.length} ITEMS`})</span>
                     </h4>
                 </div>
                 <Row className="mt-3">
@@ -37,7 +30,7 @@ const Cart = () => {
                         </div>
                         <div className="cart__bottom">
                             {
-                                cartList.map((item) => {
+                                cart.map((item) => {
                                     return (
                                         <CartItem key={item.id} item={item}/>
                                     )
@@ -49,7 +42,7 @@ const Cart = () => {
                         <div className="cart__summary">
                             <div className="cart__summary--promo">
                                 <h5>PROMO CODE</h5>
-                                <Form onSubmit={handlePromo}>
+                                <Form onSubmit={(e) => e.preventDefault()}>
                                     <div className="input-group">
                                             <span className="input-group-text" id="basic-addon1">
                                                 <i className="bi bi-tag"/>
@@ -59,7 +52,7 @@ const Cart = () => {
                                                placeholder="Promo code"
                                                aria-label="Promo code" aria-describedby="basic-addon1">
                                         </input>
-                                        <button className="btn btn-secondary" type="submit"
+                                        <button onClick={(e) => handlePromo(promoCode)} className="btn btn-secondary"
                                                 id="basic-addon1">APPLY
                                         </button>
                                     </div>
@@ -72,15 +65,15 @@ const Cart = () => {
                                 <div className="cart__summary--info-middle">
                                     <div>
                                         <h6>ORDER SUBTOTAL</h6>
-                                        <p>${cartTotal}</p>
+                                        <p>${total_amount}</p>
                                     </div>
                                     <div>
                                         <h6>SHIPPING</h6>
-                                        <p>${(shipping).toFixed(2)}</p>
+                                        <p>${(shipping_fee).toFixed(2)}</p>
                                     </div>
                                     <div>
                                         <h6>DISCOUNT</h6>
-                                        <p style={{color: "red"}}>-${(cartTotal - cartTotalWithDiscount).toFixed(2)}</p>
+                                        <p style={{color: "red"}}>-${(total_amount - total_amount_discount).toFixed(2)}</p>
                                     </div>
                                     <div>
                                         <h6>PROMO CODE</h6>
@@ -89,7 +82,7 @@ const Cart = () => {
                                 </div>
                                 <div className="cart__summary--info-bottom">
                                     <h5>ORDER TOTAL</h5>
-                                    <p>${(cartTotalWithDiscount - promo + shipping).toFixed(2)}</p>
+                                    <p>${(total_amount_discount - promo + shipping_fee).toFixed(2)}</p>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +90,7 @@ const Cart = () => {
                 </Row>
             </Container>
         </div>
-);
+    );
 };
 
 export default Cart;

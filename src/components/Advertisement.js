@@ -2,9 +2,7 @@ import React, {useState} from 'react';
 import {Container} from "reactstrap";
 
 const Advertisement = () => {
-
     const [showAd, setShowAd] = useState(true);
-
 
     return (
         showAd && (
@@ -13,7 +11,6 @@ const Advertisement = () => {
                     <div className="advertisement__info">
                         <div id="carouselAdv" className="carousel slide " data-bs-ride="carousel">
                             <div className="carousel-inner">
-
                                 <div className="carousel-item active" data-bs-interval="5000">
                                     <h5>Some kind of advertising</h5>
                                 </div>
@@ -35,10 +32,8 @@ const Advertisement = () => {
                                 <span className="visually-hidden">Next</span>
                             </button>
                         </div>
-
                         <i onClick={() => setShowAd(false)} className="bi bi-x"/>
                     </div>
-
                 </Container>
             </div>
         )

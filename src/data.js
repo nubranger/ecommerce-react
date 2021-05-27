@@ -11,7 +11,7 @@ const data = [
             "https://purepng.com/public/uploads/large/purepng.com-huawai-phonesmartphoneandroidgooglephoneapplicationhuawai-phone-211519339895jhwgr.png",
             "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-251530689596wod8s.png"
         ],
-        amount: 1,
+        stock: 3,
         category: "category1"
     },
     {
@@ -25,7 +25,7 @@ const data = [
             "https://purepng.com/public/uploads/large/purepng.com-huawai-phonesmartphoneandroidgooglephoneapplicationhuawai-phone-211519339895jhwgr.png",
             "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-251530689596wod8s.png"
         ],
-        amount: 0,
+        stock: 0,
         category: "category1"
     },
     {
@@ -39,7 +39,7 @@ const data = [
             "https://purepng.com/public/uploads/large/purepng.com-huawai-phonesmartphoneandroidgooglephoneapplicationhuawai-phone-211519339895jhwgr.png",
             "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-251530689596wod8s.png"
         ],
-        amount: 1,
+        stock: 2,
         category: "category2"
     },
     {
@@ -53,7 +53,7 @@ const data = [
             "https://purepng.com/public/uploads/large/purepng.com-huawai-phonesmartphoneandroidgooglephoneapplicationhuawai-phone-211519339895jhwgr.png",
             "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-251530689596wod8s.png"
         ],
-        amount: 0,
+        stock: 0,
         category: "category2"
     },
     {
@@ -67,7 +67,7 @@ const data = [
             "https://purepng.com/public/uploads/large/purepng.com-huawai-phonesmartphoneandroidgooglephoneapplicationhuawai-phone-211519339895jhwgr.png",
             "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-251530689596wod8s.png"
         ],
-        amount: 1,
+        stock: 6,
         category: "category2"
     },
     {
@@ -81,7 +81,7 @@ const data = [
             "https://purepng.com/public/uploads/large/purepng.com-huawai-phonesmartphoneandroidgooglephoneapplicationhuawai-phone-211519339895jhwgr.png",
             "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-251530689596wod8s.png"
         ],
-        amount: 1,
+        stock: 1,
         category: "category3"
     },
     {
@@ -95,7 +95,7 @@ const data = [
             "https://purepng.com/public/uploads/large/purepng.com-huawai-phonesmartphoneandroidgooglephoneapplicationhuawai-phone-211519339895jhwgr.png",
             "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-251530689596wod8s.png"
         ],
-        amount: 1,
+        stock: 2,
         category: "category3"
     },
     {
@@ -109,7 +109,7 @@ const data = [
             "https://purepng.com/public/uploads/large/purepng.com-huawai-phonesmartphoneandroidgooglephoneapplicationhuawai-phone-211519339895jhwgr.png",
             "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-251530689596wod8s.png"
         ],
-        amount: 1,
+        stock: 3,
         category: "category4"
     },
     {
@@ -123,7 +123,7 @@ const data = [
             "https://purepng.com/public/uploads/large/purepng.com-huawai-phonesmartphoneandroidgooglephoneapplicationhuawai-phone-211519339895jhwgr.png",
             "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-251530689596wod8s.png"
         ],
-        amount: 1,
+        stock: 3,
         category: "category5"
     },
     {
@@ -137,7 +137,7 @@ const data = [
             "https://purepng.com/public/uploads/large/purepng.com-huawai-phonesmartphoneandroidgooglephoneapplicationhuawai-phone-211519339895jhwgr.png",
             "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-251530689596wod8s.png"
         ],
-        amount: 1,
+        stock: 4,
         category: "category4"
     }
 ];

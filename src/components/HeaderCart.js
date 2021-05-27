@@ -1,25 +1,26 @@
-import React, {useContext} from 'react';
-import {EshopContext} from "../context/context";
+import React from 'react';
+import {useCartContext} from "../context/cart_context";
 
 const HeaderCart = () => {
-    const {cartList, handleCartItems} = useContext(EshopContext);
+    const {cart, removeItem} = useCartContext();
 
     return (
         <div className="header__middle-bag-dropdown-items">
             <ul>
                 {
-                    !cartList.length
+                    !cart.length
                         ?
                         <h5>Cart is empty</h5>
                         :
-                        cartList.map((item) => (
+                        cart.map((item) => (
                             <li key={item.id}>
                                 <img src={item.img[0]} alt={item.title}/>
                                 <div>
                                     <h6>{item.title}</h6>
-                                    { item.discount ? <div className="items__card-info-discount"> <p>${item.price}</p> <span>${item.discount}</span> </div> : <p>${item.price}</p> }
+                                    {item.discount ? <div className="items__card-info-discount"><p>${item.price}</p>
+                                        <span>${item.discount}</span></div> : <p>${item.price}</p>}
                                 </div>
-                                <i onClick={() => handleCartItems(item.id)}  className="bi bi-x"/>
+                                <i onClick={() => removeItem(item.id)} className="bi bi-x"/>
                             </li>
                         ))
                 }

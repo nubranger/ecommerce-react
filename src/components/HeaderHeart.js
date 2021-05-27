@@ -1,25 +1,26 @@
-import React, {useContext} from 'react';
-import {EshopContext} from "../context/context";
+import React from 'react';
+import {useFavoriteContext} from "../context/favorite_context";
 
 const HeaderHeart = () => {
-    const {likedItems, handleLikeItems} = useContext(EshopContext);
+    const {favorite, handleFavorite} = useFavoriteContext();
 
     return (
         <div className="header__middle-heart-dropdown-items">
             <ul>
                 {
-                    !likedItems.length
+                    !favorite.length
                         ?
                         <h5>List is empty</h5>
                         :
-                        likedItems.map((item) => (
+                        favorite.map((item) => (
                             <li key={item.id}>
-                                <img src={item.img[0]} alt={item.title}/>
+                                <img src={item.img} alt={item.title}/>
                                 <div>
                                     <h6>{item.title}</h6>
-                                    { item.discount ? <div className="items__card-info-discount"> <p>${item.price}</p> <span>${item.discount}</span> </div> : <p>${item.price}</p> }
+                                    {item.discount ? <div className="items__card-info-discount"><p>${item.price}</p>
+                                        <span>${item.discount}</span></div> : <p>${item.price}</p>}
                                 </div>
-                                <i onClick={() => handleLikeItems(item.id)} className="bi bi-heart-fill"/>
+                                <i onClick={() => handleFavorite(item.id, item)} className="bi bi-heart-fill"/>
                             </li>
                         ))
                 }

@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React from 'react';
 import {
     Button,
     Col,
@@ -10,72 +10,25 @@ import {
 } from "reactstrap";
 import HeaderCart from "./HeaderCart";
 import HeaderHeart from "./HeaderHeart";
-import {EshopContext} from "../context/context";
 import {Link} from "react-router-dom";
+import {useCartContext} from "../context/cart_context";
+import {useFavoriteContext} from "../context/favorite_context";
+import HeaderTop from "./HeaderTop";
 
 const Header = () => {
-    const {
-        toggleAccount,
-        setToggleAccount,
-        likedItems,
-        cartList,
-        cartTotalWithDiscount,
-        handleLikeItems,
-        handleCartItems
-    } = useContext(EshopContext);
 
-    const [showCart, setShowCart] = useState(false);
-    const [showHeart, setShowHeart] = useState(false);
-
-    const handleDropdowns = (props) => {
-        if (props === "heart") {
-            setShowHeart(true);
-            setShowCart(false);
-        }
-        if (props === "cart") {
-            setShowHeart(false);
-            setShowCart(true);
-        }
-    }
+    const {total_amount_discount, cart, isCartBarOpen, openCartBar, closeCartBar, clearCart} = useCartContext();
+    const {favorite, isFavoriteBarOpen, openFavoriteBar, closeFavoriteBar, clearFavorite} = useFavoriteContext();
 
     return (
         <div className="header">
-            <div className="header__top">
-                <Container>
-                    <div className="header__top-con">
-                        <div className="header__top-con-contact">
-                            <div className="header__top-con-contact-email">
-                                <i className="bi bi-envelope-fill"/>
-                                <span>mymail@email.com</span>
-                            </div>
-                            <div className="header__top-con-contact-phone">
-                                <i className="bi bi-telephone-fill"/>
-                                <span>+370 697 7777777</span>
-                            </div>
-                        </div>
-                        <div className="header__top-con-profile">
-                            <i className="secondary bi bi-person-circle"
-                               onClick={() => setToggleAccount(!toggleAccount)}/>
-                            <Link to="/cart">
-                                <i className="bi bi-bag"/>
-                            </Link>
-                            {/*{account.username ? <span>{account.username}</span> : <span>Profile</span>}*/}
-
-                        </div>
-                        <div className="header__top-con-social">
-                            <i className="bi bi-facebook"/>
-                            <i className="bi bi-twitter"/>
-                        </div>
-                    </div>
-
-                </Container>
-            </div>
+            <HeaderTop/>
             <Container>
                 <div className="header__middle">
                     <Row>
                         <Col lg="3" md="3">
                             <Link to="/">
-                                <img src={require("../img/logo.png").default} alt="logo"/>
+                                <img src={require("../assets/img/logo.png").default} alt="logo"/>
                             </Link>
                         </Col>
                         <Col lg="6" md="6">
@@ -92,29 +45,30 @@ const Header = () => {
                             <ul className="header__middle-cart">
                                 <li className="header__middle-heart">
                                     <div
-                                        // onMouseEnter={() => setShowHeart(true)}
-                                        onMouseEnter={() => handleDropdowns("heart")}
+                                        onMouseEnter={() => {
+                                            openFavoriteBar();
+                                            closeCartBar()
+                                        }}
                                         className="header__middle-heart-list"
                                     >
                                         <i className="bi bi-heart">
-                                            <span>{likedItems.length}</span>
+                                            <span>{favorite.length}</span>
                                         </i>
                                     </div>
-
                                     {
-                                        showHeart && (
+                                        isFavoriteBarOpen && (
                                             <div
                                                 className="header__middle-heart-dropdown"
-                                                onMouseLeave={() => setShowHeart(false)}
+                                                onMouseLeave={closeFavoriteBar}
                                             >
                                                 <div className="header__middle-heart-dropdown-top">
                                                     <h4>Liked items</h4>
-                                                    <i onClick={() => setShowHeart(false)} className="bi bi-x"/>
+                                                    <i onClick={closeFavoriteBar} className="bi bi-x"/>
                                                 </div>
                                                 <div>
                                                     <HeaderHeart/>
                                                     <div className="header__middle-bag-dropdown-buttons">
-                                                        <Button onClick={() => handleLikeItems("clear")}>CLEAR
+                                                        <Button onClick={clearFavorite}>CLEAR
                                                             LIST</Button>
                                                     </div>
                                                 </div>
@@ -125,35 +79,36 @@ const Header = () => {
                                 <li className="header__middle-bag">
 
                                     <div
-                                        onMouseEnter={() => handleDropdowns("cart")}
-                                        // onMouseEnter={() => setShowCart(true)}
+                                        onMouseEnter={() => {
+                                            openCartBar();
+                                            closeFavoriteBar()
+                                        }}
                                         className="header__middle-bag-cart"
                                     >
                                         <Link to="/cart">
                                             <i className="bi bi-bag">
-                                                <span>{cartList.length}</span>
+                                                <span>{cart.length}</span>
                                             </i>
                                         </Link>
                                     </div>
                                     {
-                                        showCart && (
+                                        isCartBarOpen && (
                                             <div
                                                 className="header__middle-bag-dropdown"
-                                                onMouseLeave={() => setShowCart(false)}
+                                                onMouseLeave={closeCartBar}
                                             >
                                                 <div className="header__middle-bag-dropdown-top">
                                                     <h4>Cart list</h4>
-                                                    <i onClick={() => setShowCart(false)} className="bi bi-x"/>
+                                                    <i onClick={closeCartBar} className="bi bi-x"/>
                                                 </div>
                                                 <div>
                                                     <HeaderCart/>
                                                     <div className="header__middle-bag-dropdown-buttons">
                                                         <div>
                                                             <h6>TOTAL:</h6>
-                                                            <p>${cartTotalWithDiscount}</p>
+                                                            <p>${total_amount_discount}</p>
                                                         </div>
-                                                        <Button onClick={() => handleCartItems("clear")}>CLEAR
-                                                            LIST</Button>
+                                                        <Button onClick={clearCart}>CLEAR LIST</Button>
                                                         <Link to="/cart">
                                                             <Button className="mt-2 btn-dark">VIEW CART</Button>
                                                         </Link>
@@ -162,17 +117,15 @@ const Header = () => {
                                             </div>
                                         )
                                     }
-
                                 </li>
                                 <li className="header__middle-cart-price">
-                                    <p>${cartTotalWithDiscount}</p>
+                                    <p>${total_amount_discount}</p>
                                 </li>
                             </ul>
                         </Col>
                     </Row>
                 </div>
             </Container>
-
         </div>
     );
 };

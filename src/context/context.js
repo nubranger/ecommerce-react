@@ -29,7 +29,6 @@ const EshopProvider = ({children}) => {
     const [account, setAccount] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [products, setProducts] = useState(data);
-    const [toggleAccount, setToggleAccount] = useState(false);
     const [likedItems, setLikedItems] = useState(getLikedStorage());
     const [cartList, setCartList] = useState(getCartStorage());
     const [cartTotal, setCartTotal] = useState(0);
@@ -237,7 +236,6 @@ const EshopProvider = ({children}) => {
                 handleAccount,
                 account,
                 products, setProducts,
-                toggleAccount, setToggleAccount,
                 handleLikeItems,
                 likedItems, setLikedItems,
                 cartList, setCartList,
