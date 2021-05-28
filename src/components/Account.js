@@ -1,11 +1,11 @@
-import React, {useContext} from 'react';
-import {EshopContext} from "../context/context";
+import React, {useState} from 'react';
 import {Button, Form, Input} from "reactstrap";
 import {useProfileContext} from "../context/profile_context";
 
 const Account = () => {
-    const {setEmail, handleAccount} = useContext(EshopContext);
-    const {isProfileBarOpen, closeProfileBar} = useProfileContext();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const {isProfileBarOpen, closeProfileBar, handleProfile} = useProfileContext();
 
     return (
         isProfileBarOpen && (
@@ -15,18 +15,21 @@ const Account = () => {
                     <i onClick={closeProfileBar} className="bi bi-x"/>
                 </div>
                 <div className="account__form">
-                    <Form onSubmit={handleAccount}>
+                    <Form onSubmit={(e) => e.preventDefault()}>
                         <label htmlFor="validationEmail" className="form-label">Email</label>
                         <div className="input-group has-validation">
                             <span className="input-group-text" id="inputGroupPrepend"><i className="bi bi-at"/></span>
-                            <input onChange={(e) => setEmail(e.target.value)} type="email" className="form-control"
+                            <input onChange={(e) => setEmail(e.target.value)}
+                                   type="email"
+                                   className="form-control"
                                    id="validationEmail"
                                    aria-describedby="inputGroupPrepend" required/>
                         </div>
                         <label htmlFor="validationPassword" className="mt-2 form-label">Password</label>
                         <div className="input-group has-validation">
                             <span className="input-group-text" id="inputGroupPrepend"><i className="bi bi-shield-lock"/></span>
-                            <input onChange={(e) => setEmail(e.target.value)} type="password" className="form-control"
+                            <input onChange={(e) => setPassword(e.target.value)} type="password"
+                                   className="form-control"
                                    id="validationPassword"
                                    aria-describedby="inputGroupPrepend" required/>
                         </div>
@@ -35,7 +38,7 @@ const Account = () => {
                             <Input type="checkbox" name="remember" id="Remember"/>
                             <a className="float-end" href="/forgot-password">Forgot password?</a>
                         </div>
-                        <Button className="mt-2">Sign in</Button>
+                        <Button onClick={() => handleProfile(email, password)} className="mt-2">Sign in</Button>
                     </Form>
                 </div>
 

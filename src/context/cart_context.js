@@ -23,7 +23,7 @@ const initialState = {
     cart: getLocalStorage(),
     total_amount_discount: 0,
     total_amount: 0,
-    shipping_fee: 44,
+    shipping_fee: 0,
     promo: 0,
     isCartBarOpen: false,
 }
@@ -71,10 +71,7 @@ export const CartProvider = ({children}) => {
     const toggleAmount = (id, value) => {
         dispatch({
             type: TOGGLE_CART_ITEM_AMOUNT,
-            payload: {
-                id,
-                value,
-            },
+            payload: {id, value}
         })
     }
 

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./styles/scss/main.scss";
-import {EshopProvider} from "./context/context";
 import {ProfileProvider} from './context/profile_context'
 import {ProductsProvider} from "./context/products_context";
 import {CartProvider} from "./context/cart_context";
@@ -17,9 +16,7 @@ ReactDOM.render(
             <CartProvider>
                 <FavoriteProvider>
                     <SortProvider>
-                        <EshopProvider>
-                            <App/>
-                        </EshopProvider>
+                        <App/>
                     </SortProvider>
                 </FavoriteProvider>
             </CartProvider>

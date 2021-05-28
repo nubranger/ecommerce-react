@@ -62,7 +62,7 @@ const Header = () => {
                                                 onMouseLeave={closeFavoriteBar}
                                             >
                                                 <div className="header__middle-heart-dropdown-top">
-                                                    <h4>Liked items</h4>
+                                                    <h4>Favorite items</h4>
                                                     <i onClick={closeFavoriteBar} className="bi bi-x"/>
                                                 </div>
                                                 <div>
@@ -98,7 +98,7 @@ const Header = () => {
                                                 onMouseLeave={closeCartBar}
                                             >
                                                 <div className="header__middle-bag-dropdown-top">
-                                                    <h4>Cart list</h4>
+                                                    <h4>Shopping bag</h4>
                                                     <i onClick={closeCartBar} className="bi bi-x"/>
                                                 </div>
                                                 <div>
@@ -110,7 +110,7 @@ const Header = () => {
                                                         </div>
                                                         <Button onClick={clearCart}>CLEAR LIST</Button>
                                                         <Link to="/cart">
-                                                            <Button className="mt-2 btn-dark">VIEW CART</Button>
+                                                            <Button className="mt-2 btn-dark">VIEW BAG</Button>
                                                         </Link>
                                                     </div>
                                                 </div>

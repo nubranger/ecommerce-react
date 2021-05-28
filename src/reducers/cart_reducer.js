@@ -60,13 +60,21 @@ const cart_reducer = (state, action) => {
     }
 
     if (action.type === TOGGLE_CART_ITEM_AMOUNT) {
-        const {id, value} = action.payload
+        const {id, value} = action.payload;
+
         const tempCart = state.cart.map((item) => {
             if (item.id === id) {
+                if (typeof parseInt(value) === 'number') {
+                    let newAmount = value
+                    if (newAmount > item.stock) {
+                        newAmount = item.stock
+                    }
+                    return {...item, amount: newAmount}
+                }
                 if (value === 'inc') {
                     let newAmount = item.amount + 1
-                    if (newAmount > item.max) {
-                        newAmount = item.max
+                    if (newAmount > item.stock) {
+                        newAmount = item.stock
                     }
                     return {...item, amount: newAmount}
                 }
@@ -103,17 +111,17 @@ const cart_reducer = (state, action) => {
             let prices = null;
 
             if (item.price && item.discount) {
-                prices = item.discount
+                prices = item.discount * item.amount
             }
             if (item.price && !item.discount) {
-                prices = item.price
+                prices = item.price * item.amount
             }
 
             return prices;
         });
 
         let countFull = state.cart.map(item => {
-            return item.price;
+            return item.price * item.amount;
         });
 
         let total_amount_discount = 0;

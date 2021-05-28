@@ -47,12 +47,13 @@ const Cart = () => {
                                             <span className="input-group-text" id="basic-addon1">
                                                 <i className="bi bi-tag"/>
                                             </span>
-                                        <input onChange={(e) => setPromoCode(e.target.value)} type="text"
+                                        <input onChange={(e) => setPromoCode(e.target.value)}
+                                               type="text"
                                                className="form-control"
                                                placeholder="Promo code"
                                                aria-label="Promo code" aria-describedby="basic-addon1">
                                         </input>
-                                        <button onClick={(e) => handlePromo(promoCode)} className="btn btn-secondary"
+                                        <button onClick={() => handlePromo(promoCode)} className="btn btn-secondary"
                                                 id="basic-addon1">APPLY
                                         </button>
                                     </div>
