@@ -3,9 +3,11 @@ import {Row} from "reactstrap";
 import Sort from "./Sort";
 import Item from "./Item";
 import {useSortContext} from "../context/sort_context";
+import {useFilterContext} from "../context/filter_context";
 
 const Items = () => {
-    const {sorted_products} = useSortContext();
+    // const {sorted_products} = useSortContext();
+    const {filtered_products}= useFilterContext();
     const [grid, setGrid] = useState(4);
 
     const handleGrid = (prop) => {
@@ -20,7 +22,7 @@ const Items = () => {
             </div>
             <Row className="mt-3">
                 {
-                    sorted_products.map((item) => {
+                    filtered_products.map((item) => {
 
                         return (
                             <Item key={item.id} grid={grid} item={item}/>

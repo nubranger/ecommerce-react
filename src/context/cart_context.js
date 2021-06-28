@@ -23,7 +23,7 @@ const initialState = {
     cart: getLocalStorage(),
     total_amount_discount: 0,
     total_amount: 0,
-    shipping_fee: 0,
+    shipping_fee: 7,
     promo: 0,
     isCartBarOpen: false,
 }

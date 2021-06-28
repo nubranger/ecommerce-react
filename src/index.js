@@ -8,6 +8,7 @@ import {ProductsProvider} from "./context/products_context";
 import {CartProvider} from "./context/cart_context";
 import {FavoriteProvider} from "./context/favorite_context";
 import {SortProvider} from "./context/sort_context";
+import {FilterProvider} from "./context/filter_context";
 
 
 ReactDOM.render(
@@ -16,7 +17,9 @@ ReactDOM.render(
             <CartProvider>
                 <FavoriteProvider>
                     <SortProvider>
-                        <App/>
+                        <FilterProvider>
+                            <App/>
+                        </FilterProvider>
                     </SortProvider>
                 </FavoriteProvider>
             </CartProvider>

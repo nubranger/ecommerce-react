@@ -64,7 +64,8 @@ const cart_reducer = (state, action) => {
 
         const tempCart = state.cart.map((item) => {
             if (item.id === id) {
-                if (typeof parseInt(value) === 'number') {
+                console.log(parseInt(value));
+                if (Number.isInteger(parseInt(value))) {
                     let newAmount = value
                     if (newAmount > item.stock) {
                         newAmount = item.stock
@@ -107,6 +108,7 @@ const cart_reducer = (state, action) => {
     }
 
     if (action.type === COUNT_CART_TOTALS) {
+
         let count = state.cart.map(item => {
             let prices = null;
 
@@ -119,6 +121,7 @@ const cart_reducer = (state, action) => {
 
             return prices;
         });
+
 
         let countFull = state.cart.map(item => {
             return item.price * item.amount;
